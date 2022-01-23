@@ -24,8 +24,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR&display=swap" rel="stylesheet">
 
+    <title>링크 스크랩북 | 부트스트랩 연습하기</title>
 
-    <title>부트스트랩 연습하기</title>
 
     <style>
       * {
@@ -36,12 +36,12 @@
         margin: auto;
       }
       .posting_box{
-        display: block;
         width: 500px;
         margin: 0px auto 30px;
-        padding: 40px;
         border: 2px solid gray;
         border-radius: 10px;
+        padding: 40px;
+        display: none ;
       }
       .card-title{
         color: #31a4b2;
@@ -51,6 +51,19 @@
         color:blue;
       }
     </style>
+    <script>
+        function openclose(){
+            let status = $('#post-box').css('display');
+            if (status == 'none'){
+                 $('#post-box').show();
+                 $('#btn-posting-box').text('포스팅박스 닫기');
+            } else {
+                 $('#post-box').hide();
+                 $('#btn-posting-box').text('포스팅박스 열기');
+            }
+        }
+
+    </script>
 
 
 </head>
@@ -58,17 +71,17 @@
 <body>
 <div class="wrap">
   <header class="jumbotron">
-      <h1 class="display-4">나홀로 링크 스크랩북!</h1>
-      <p class="lead">중요한 링크를 저장해두고, 나중에 볼 수 있는 공간입니다</p>
+      <h1 class="display-4">전시 링크 스크랩북!</h1>
+      <p class="lead">링크와 내용을 저장해두고, 나중에 볼 수 있는 공간입니다</p>
       <hr class="my-4">
       <p class="lead">
-          <a class="btn btn-primary btn-lg" href="#" role="button">포스팅박스 열기</a>
+          <a onclick="openclose()" id="btn-posting-box" class="btn btn-primary btn-lg" href="#" role="button">포스팅박스 열기</a>
       </p>
   </header>
-  <div class="posting_box">
+  <div class="posting_box" id="post-box">
     <div class="form-group">
-      <label for="exampleInputEmail1">아티클 url</label>
-      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="articleUrl">
+      <label>아티클 url</label>
+      <input type="email" class="form-control" id="article-url" aria-describedby="articleUrl">
     </div>
     <div class="form-group">
     <label for="exampleFormControlTextarea1">간단 코멘트</label>
@@ -76,53 +89,15 @@
   </div>
     <button type="submit" class="btn btn-primary">기사 저장</button>
   </div>
-  <div class="card-columns">
+  <div class="card-columns" id="card-box">
     <article class="card">
-          <img class="card-img-top" src="https://i.etsystatic.com/31772906/r/il/c5046c/3465367563/il_340x270.3465367563_21vt.jpg" alt="Card image cap">
+          <img class="card-img-top" src="https://cdn.eyesmag.com/content/uploads/posts/2021/09/13/groundseesaw-new-exhibition-accidentally-wes-anderson-01-36df7322-d15d-4af0-8531-1796b060e2f6.jpg" alt="Poster image">
           <div class="card-body">
             <a href="http://naver.com/"><h5 class="card-title">여기 기사 제목이 들어가죠</h5></a>
               <p class="card-text">기사의 요약 내용이 들어갑니다. 동해물과 백두산이 마르고 닳도록 하느님이 보우하사 우리나라만세 무궁화 삼천리 화려강산...</p>
               <p class="comment">여기에 코멘트가 들어갑니다.</p>
           </div>
       </article>
-    <article class="card">
-          <img class="card-img-top" src="https://i.etsystatic.com/31772906/r/il/c5046c/3465367563/il_340x270.3465367563_21vt.jpg" alt="Card image cap">
-          <div class="card-body">
-            <a href="http://naver.com/"><h5 class="card-title">여기 기사 제목이 들어가죠</h5></a>
-              <p class="card-text">기사의 요약 내용이 들어갑니다. 동해물과 백두산이 마르고 닳도록 하느님이 보우하사 우리나라만세 무궁화 삼천리 화려강산...</p>
-              <p class="comment">여기에 코멘트가 들어갑니다.</p>
-          </div>
-      </article>
-    <article class="card">
-          <img class="card-img-top" src="https://i.etsystatic.com/31772906/r/il/c5046c/3465367563/il_340x270.3465367563_21vt.jpg" alt="Card image cap">
-          <div class="card-body">
-            <a href="http://naver.com/"><h5 class="card-title">여기 기사 제목이 들어가죠</h5></a>
-              <p class="card-text">기사의 요약 내용이 들어갑니다. 동해물과 백두산이 마르고 닳도록 하느님이 보우하사 우리나라만세 무궁화 삼천리 화려강산...</p>
-              <p class="comment">여기에 코멘트가 들어갑니다.</p>
-          </div>
-      </article>
-    <article class="card">
-          <img class="card-img-top" src="https://i.etsystatic.com/31772906/r/il/c5046c/3465367563/il_340x270.3465367563_21vt.jpg" alt="Card image cap">
-          <div class="card-body">
-            <a href="http://naver.com/"><h5 class="card-title">여기 기사 제목이 들어가죠</h5></a>
-              <p class="card-text">기사의 요약 내용이 들어갑니다. 동해물과 백두산이 마르고 닳도록 하느님이 보우하사 우리나라만세 무궁화 삼천리 화려강산...</p>
-              <p class="comment">여기에 코멘트가 들어갑니다.</p>
-          </div>
-      </article>
-    <article class="card">
-          <img class="card-img-top" src="https://i.etsystatic.com/31772906/r/il/c5046c/3465367563/il_340x270.3465367563_21vt.jpg" alt="Card image cap">
-          <div class="card-body">
-            <a href="http://naver.com/"><h5 class="card-title">여기 기사 제목이 들어가죠</h5></a>
-              <p class="card-text">기사의 요약 내용이 들어갑니다. 동해물과 백두산이 마르고 닳도록 하느님이 보우하사 우리나라만세 무궁화 삼천리 화려강산...</p>
-              <p class="comment">여기에 코멘트가 들어갑니다.</p>
-          </div>
-      </article>
-    <article class="card">
-          <img class="card-img-top" src="https://i.etsystatic.com/31772906/r/il/c5046c/3465367563/il_340x270.3465367563_21vt.jpg" alt="Card image cap">
-          <div class="card-body">
-            <a href="http://naver.com/"><h5 class="card-title">여기 기사 제목이 들어가죠</h5></a>
-              <p class="card-text">기사의 요약 내용이 들어갑니다. 동해물과 백두산이 마르고 닳도록 하느님이 보우하사 우리나라만세 무궁화 삼천리 화려강산...</p>
-              <p class="comment">여기에 코멘트가 들어갑니다.</p>
           </div>
       </article>
   </div>
